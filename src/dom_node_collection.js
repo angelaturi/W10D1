@@ -29,15 +29,17 @@ class DOMNodeCollection {
         } else if (child instanceof DOMNodeCollection) {
             this.each ((node) => {
                 child.each ((childNode) => {
-                    node.appendChild(childNode);
+                    node.appendChild(childNode.cloneNode(true));
                 });
             });
         }
 
     }
 
-    attr() {
-
+    attr(key, value) {
+        if (typeof value === "string") {
+            this.each(node => node.setAttribute(key, value))
+        }
     }
 
     addClass() {

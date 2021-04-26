@@ -13,9 +13,9 @@
 /*!************************************!*\
   !*** ./src/dom_node_collection.js ***!
   \************************************/
-/***/ (() => {
+/***/ ((module) => {
 
-eval("class DOMNodeCollection {\n    constructor(htmlEleArr) {\n        \n    }\n}\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
+eval("class DOMNodeCollection {\n    constructor(htmlEleArr) {\n\n    }\n}\n\nmodule.exports = DOMNodeCollection;\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
 
 /***/ }),
 

@@ -1,11 +1,12 @@
 const DOMNodeCollection = require("./dom_node_collection");
 
-window.$1 = arg => {
-    
+window.$l = (arg) => {
+    if (arg instanceof HTMLElement) {
+        return new DOMNodeCollection([arg]);
+    }
 };
 
-const $l = (selector) => {
-    const nodes = document.querySelectorAll(selector);
-
+$l = (selector) => {
+    const nodes = document.querySelectorAll(selector)
     return Array.from(nodes);
 };

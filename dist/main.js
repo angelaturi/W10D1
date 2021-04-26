@@ -15,7 +15,7 @@
   \************************************/
 /***/ ((module) => {
 
-eval("class DOMNodeCollection {\n    constructor(htmlEleArr) {\n\n    }\n}\n\nmodule.exports = DOMNodeCollection;\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
+eval("class DOMNodeCollection {\n    constructor(htmlEleArr) {\n        this.htmlEleArr = htmlEleArr;\n    }\n\n    html(string) {\n        \n    }\n\n    empty() {\n\n    }\n\n    append() {\n\n    }\n\n    attr() {\n\n    }\n\n    addClass() {\n\n    }\n\n    removeClass() {\n\n    }\n\n    children() {\n\n    } \n\n    parent() {\n\n    }\n\n    find() {\n\n    }\n\n    remove() {\n\n    }\n}\n\nmodule.exports = DOMNodeCollection;\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
 
 /***/ }),
 
@@ -25,7 +25,7 @@ eval("class DOMNodeCollection {\n    constructor(htmlEleArr) {\n\n    }\n}\n\nmo
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const DOMNodeCollection = __webpack_require__(/*! ./dom_node_collection */ \"./src/dom_node_collection.js\");\n\nwindow.$1 = arg => {\n    \n};\n\nconst $l = (selector) => {\n    const nodes = document.querySelectorAll(selector);\n\n    return Array.from(nodes);\n};\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const DOMNodeCollection = __webpack_require__(/*! ./dom_node_collection */ \"./src/dom_node_collection.js\");\n\nwindow.$l = (arg) => {\n    if (arg instanceof HTMLElement) {\n        return new DOMNodeCollection([arg]);\n    }\n};\n\n$l = (selector) => {\n    const nodes = document.querySelectorAll(selector)\n    return Array.from(nodes);\n};\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

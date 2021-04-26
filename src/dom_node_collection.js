@@ -38,24 +38,42 @@ class DOMNodeCollection {
 
     attr(key, value) {
         if (typeof value === "string") {
-            this.each(node => node.setAttribute(key, value))
+            this.each(node => node.setAttribute(key, value));
+        } else {
+            return this.htmlEleArr[0].getAttribute(key);
         }
     }
 
-    addClass() {
-
+    addClass(nclass) {
+        this.each(node => node.classList.add(nclass));
     }
 
-    removeClass() {
-
+    removeClass(oldClass) {
+        this.each(node => node.classList.remove(oldClass));
     }
 
     children() {
+        let res = [];
 
+        this.each(node => {
+            let c = node.children;
+            res = res.concat(c);
+        });
+
+        return new DOMNodeCollection(res);
     } 
 
     parent() {
+        let res = [];
 
+        this.each(({parentNode}) => {
+            if (!parentNode.visited) {
+                res.push(parentNode);
+                parentNode.visited = true;
+            }
+        });
+
+        return new DOMNodeCollection(res);
     }
 
     find() {

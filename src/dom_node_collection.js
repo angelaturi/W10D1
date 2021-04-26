@@ -100,7 +100,7 @@ class DOMNodeCollection {
 
     off(event) {
         this.each(node => {
-            
+
         })
     }
 }

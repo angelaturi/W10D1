@@ -76,12 +76,32 @@ class DOMNodeCollection {
         return new DOMNodeCollection(res);
     }
 
-    find() {
+    find(selector) {
+        let res = [];
 
+        this.each((node) => {
+            let nodeList = node.querySelectorAll(selector);
+            res = res.concat(nodeList);
+        })
+
+        return new DOMNodeCollection(res);
     }
 
     remove() {
+        this.each(node => node.parentNode.removeChild(node));
+    }
 
+    on(event, callback) {
+        this.each((node) => {
+            node.addEventListener(event, callback);
+            node.setAttribute("cb", callback)
+        })
+    }
+
+    off(event) {
+        this.each(node => {
+            
+        })
     }
 }
 
